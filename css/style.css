@@ -1,18 +1,42 @@
-/* Error: There is no module with the namespace "style".
- *   ,
- * 4 |     background-color: style.$color-primario;
- *   |                       ^^^^^^^^^^^^^^^^^^^^^
- *   '
- *   sass\_navbar.scss 4:23  @use
- *   sass\style.scss 1:1     root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: There is no module with the namespace "style".\a   \2577 \a 4 \2502      background-color: style.$color-primario;\d\a   \2502                        ^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   sass\\_navbar.scss 4:23  @use\a   sass\\style.scss 1:1     root stylesheet';
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  color: black;
+}
+
+.nav {
+  color: orange;
+  height: auto;
+  width: auto 0;
+}
+
+* {
+  background-color: #f5c875;
+  font-size: xx-large;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+
+.display {
+  height: 30px;
+  width: 80px;
+  border-radius: 20px;
+  font-size: 3rem;
+}
+
+.title {
+  justify-content: center;
+  text-align: center;
+  margin: 30px;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,27 +1,61 @@
-@use 'navbar';
-@use 'reset';
+// $color-primario: crimson;
+// $background-color-main: #f5c875;
+// $font-family-main: 'Courier New', Courier, monospace;
 
+// @use 'navbar' as *;
+// @use 'reset' as *;
+
+
+// *{
+//     // background-color: $background-color-main;
+//     // font-family: $font-family-main;
+//     font-size: xx-large;
+// }
+
+// .container{
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     margin: 50px;
+// }
+
+// .display{
+//     height: 30px;
+//     width: 80px;
+//     border-radius: 20px;
+//     font-size: 3rem;
+// }
+
+// Define las variables en el archivo principal
 $color-primario: crimson;
 $background-color-main: #f5c875;
 $font-family-main: 'Courier New', Courier, monospace;
 
+@use 'navbar';
+@use 'reset';
+
+// Utiliza las variables en el archivo principal
 *{
     background-color: $background-color-main;
-    // font-family: $font-family-main;
     font-size: xx-large;
 }
 
-.container{
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 50px;
 }
 
-.display{
+.display {
     height: 30px;
     width: 80px;
     border-radius: 20px;
     font-size: 3rem;
 }
 
+.title{
+    justify-content: center;
+    text-align: center;
+    margin: 30px;
+}

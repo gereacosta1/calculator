@@ -1,61 +1,95 @@
-// $color-primario: crimson;
-// $background-color-main: #f5c875;
-// $font-family-main: 'Courier New', Courier, monospace;
+    $bg-color: #213635;
+    $btn-color: #1DB954;
+    $btn-hover-color: #007d29;
+    $bg-color-calculator: #191414;
+    $title-color: #1DB954;
+    $title-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
-// @use 'navbar' as *;
-// @use 'reset' as *;
-
-
-// *{
-//     // background-color: $background-color-main;
-//     // font-family: $font-family-main;
-//     font-size: xx-large;
-// }
-
-// .container{
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     margin: 50px;
-// }
-
-// .display{
-//     height: 30px;
-//     width: 80px;
-//     border-radius: 20px;
-//     font-size: 3rem;
-// }
-
-// Define las variables en el archivo principal
-$color-primario: crimson;
-$background-color-main: #f5c875;
-$font-family-main: 'Courier New', Courier, monospace;
-
-@use 'navbar';
-@use 'reset';
-
-// Utiliza las variables en el archivo principal
-*{
-    background-color: $background-color-main;
-    font-size: xx-large;
-}
-
-.container {
+    body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px;
-}
+    height: 100vh;
+    background-color: $bg-color;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    }
 
-.display {
-    height: 30px;
-    width: 80px;
-    border-radius: 20px;
-    font-size: 3rem;
-}
+    .title {
+        text-align: center;
+        margin-bottom: 20px;
+        color: $title-color;
+        text-shadow: $title-shadow;
+        transition: transform 0.3s ease, text-shadow 0.3s ease; // Transición fluida
+        
+            h1 {
+            font-size: 4em; // Tamaño grande para el título principal
+            margin: 0;
+            transition: transform 0.4s ease, text-shadow 0.5s ease; // Transición fluida
+            &:hover {
+                transform: scale(1.2); // Aumenta el tamaño al pasar el cursor
+                text-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); // Sombra más pronunciada
+            }
+            }
+        
+            h3 {
+            font-size: 2em; // Tamaño para el título secundario
+            margin: 20px 0 0 0; // Mayor separación entre los títulos
+            transition: transform 0.3s ease, text-shadow 0.3s ease; // Transición fluida
+            &:hover {
+                transform: scale(1.2); // Aumenta el tamaño al pasar el cursor
+                text-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); // Sombra más pronunciada
+            }
+            }
+        }
 
-.title{
-    justify-content: center;
-    text-align: center;
-    margin: 30px;
-}
+    .calculator {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 90px;
+    background-color:  $bg-color-calculator;
+    -webkit-box-shadow: 7px 10px 106px 10px rgba(10,12,13,1);
+    -moz-box-shadow: 7px 10px 106px 10px rgba(10,12,13,1);
+    box-shadow: 7px 10px 106px 10px rgba(10,12,13,1);
+    }
+
+    .screen {
+    background-color:  $bg-color-calculator;
+    padding: 25px;
+    font-size: 2em;
+    text-align: right;
+    border-bottom: 2px solid #ccc;
+    height: 25px; /* Altura fija */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    color: white;
+    }
+
+    .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Completar la declaración grid-template-columns */
+    gap: 10px;
+    padding: 20px;
+    }
+
+    .btn {
+    background-color: $btn-color;
+    border: none;
+    padding: 20px;
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    
+    &:hover {
+        background-color: $btn-hover-color;
+    }
+    }

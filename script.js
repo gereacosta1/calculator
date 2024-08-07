@@ -21,11 +21,6 @@
 //     }
 // })
 
-
-
-
-
-
 // const display = document.querySelector("#display");
 // const buttons = document.querySelectorAll("button");
 
@@ -51,20 +46,52 @@
 //     };
 //     });
 
-    const screen = document.getElementById('screen');
+const screen = document.getElementById('screen');
 
-    function appendNumber(number) {
+function appendNumber(number) {
+    // Evita la inserción de operadores consecutivos
+    if (isOperator(number) && isOperator(screen.innerText.slice(-1))) {
+        return;
+    } 
+    // Ajusta el tamaño de la fuente para evitar desbordamiento
     screen.innerText += number;
-    }
+    adjustFontSize();
+}
 
-    function clearScreen() {
+function clearScreen() {
     screen.innerText = '';
-    }
+    screen.style.fontSize = '2em'; // Restablece el tamaño de la fuente
+}
 
-    function calculate() {
+function calculate() {
     try {
-        screen.innerText = eval(screen.innerText);
+        const result = eval(screen.innerText);
+        if (isNaN(result) || result === undefined) {
+            throw new Error("Invalid Calculation");
+        }
+        screen.innerText = result;
     } catch (error) {
         screen.innerText = 'Error';
+        setTimeout(() => {
+            screen.innerText = '';
+            screen.style.fontSize = '2em';
+        }, 2000);
     }
+    adjustFontSize();
+}
+
+function isOperator(value) {
+    return ['+', '-', '*', '/'].includes(value);
+}//La función isOperator ayuda a determinar si un carácter es un operador (+, -, *, /).
+
+function adjustFontSize() {
+    // adjustFontSize ajusta dinámicamente el tamaño de la fuente del texto en la pantalla para evitar el desbordamiento.
+    // Esta función se llama cada vez que se agrega un número u operador a la pantalla y después de realizar un cálculo.
+    const maxFontSize = 2; // Tamaño máximo de fuente en em
+    const minFontSize = 1; // Tamaño mínimo de fuente en em
+    screen.style.fontSize = maxFontSize + 'em';
+    
+    while (screen.scrollWidth > screen.clientWidth && parseFloat(screen.style.fontSize) > minFontSize) {
+        screen.style.fontSize = (parseFloat(screen.style.fontSize) - 0.1) + 'em';
     }
+}
